@@ -1,0 +1,23 @@
+@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+
+body{
+  /* default font size, also equals 1rem */
+  font-size: 18px; 
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#intro{
+  width: 70ch;
+}
+
+#intro p{
+  margin-bottom: 1.5rem;
+}
+
+.redback{
+  background-color: #f00;
+}
