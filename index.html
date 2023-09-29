@@ -7,28 +7,80 @@
   </head>
   <body>
     <header>
-      <h1>Impacts of Bushfires</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#intro">Introduction</a>
-          </li>
-          <li>
-            <a href="#">section 2</a>
-          </li>
-          <li>
-            <a href="#">section 3</a>
-          </li>
-        </ul>
-      </nav>
-
+      <div class="container">
+        <h1>Impacts of Bushfires</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#intro">Introduction</a>
+            </li>
+            <li>
+              <a href="#experiments">JS Experiments</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main>
-      <section id="intro">
-        <p>Here we are considering the adverse effects of high intensity wildfires on the community and the environment. It should be remembered that it is not just intensity of a bushfire that matters. The extent of a bushfire is also very important. A large bushfire can cause multiple direct impacts: on life and property, on the survival of fauna populations, on water resources, and indirectly on government budgets and insurance costs. A large bushfire will also generate huge amounts of smoke.</p>
-        <p>In severe fire seasons the damage caused by bushfires is astronomical. In the 2003 Canberra fire disaster, for example, the cost to insurers alone was $257 million (The West Australian, 13 Feb, 2003). The total cost of the fires, including the cost of suppression measures and lost productivity, would be much greater than this figure. Add to it the loss of life, personal trauma, loss of invaluable personal possessions and destruction of scientific equipment and data from the Mt Stromlo Observatory, and the ramifications of such disasters start to become apparent.</p>
-      </section>
-    </main>
+      <div class="container">
+        <section id="intro">
+          <img src="https://www.bushfirefront.org.au/wp-content/uploads/2017/10/vic3.jpg" alt="A fire truck drives away from a dark cloud of smoke filling the sky">
+          <p>Here we are considering the adverse effects of high intensity wildfires on the community and the environment. It should be remembered that it is not just intensity of a bushfire that matters. The extent of a bushfire is also very important. A large bushfire can cause multiple direct impacts: on life and property, on the survival of fauna populations, on water resources, and indirectly on government budgets and insurance costs. A large bushfire will also generate huge amounts of smoke.</p>
+          <p>In severe fire seasons the damage caused by bushfires is astronomical. In the 2003 Canberra fire disaster, for example, the cost to insurers alone was $257 million (The West Australian, 13 Feb, 2003). The total cost of the fires, including the cost of suppression measures and lost productivity, would be much greater than this figure. Add to it the loss of life, personal trauma, loss of invaluable personal possessions and destruction of scientific equipment and data from the Mt Stromlo Observatory, and the ramifications of such disasters start to become apparent.</p>
+        </section>
 
+        <section id="experiments">
+          <h2>Experiments</h2>
+          <div class="experiment">
+            <h3>JS onclick and CSS transitions</h3>
+            <div class="moveContainer">
+              <!-- note the use of datasets (data-*) -->
+              <div 
+                class="moveBox"
+                data-clicks="0"
+                data-distance="100"
+              >100
+              </div>
+
+              <!-- a less elegant way to handle a click event - don't do this much -->
+              <div 
+                class="moveBox"
+                data-clicks="0"
+                data-distance="200" 
+                onclick="//moveDown(this)"
+              >200
+              </div>
+
+              <!-- even less elegant, don't dump a bunch of JS in the onclick attribute! -->
+              <div 
+                class="moveBox"
+                data-clicks="0" 
+                data-distance="300" 
+                onclick="
+                        //this.dataset.clicks ++;
+                        //this.style.transition = 'all 1s ease'; 
+                        //this.style.marginTop = (this.dataset.distance * this.dataset.clicks)+'px';
+                        "
+              >300
+              </div>
+            </div>
+          </div>
+          <div class="experiment">
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p><small>This site was built as an assignment for The University of Canberra, 2023</small></p>
+        <p><small>content sources:</small></p>
+        <ul>
+          <li><small><a href="https://www.bushfirefront.org.au/home/fire-facts/impacts-of-bushfires/">Bushfire Front</a></small></li>
+          <li><small><a href="https://iconmonstr.com/care-down-thin-svg/">iconmonstr</a></small></li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
