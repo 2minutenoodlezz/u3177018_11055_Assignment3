@@ -2,14 +2,14 @@
 // a function to be used on an element with onClick or any event listener you like
 function moveDown(e){
   e.dataset.clicks ++
-  console.log(e.dataset.clicks)
+  // console.log(e.dataset.clicks)
   let clicks = e.dataset.clicks
   let dist = e.dataset.distance
-  e.style.marginTop = (dist * clicks)+'px'
+  e.style.marginTop = (dist * clicks) + 'px'
 }
 
 let moveBoxes = document.querySelectorAll(".moveBox")
-// console.log(moveBoxes)
+console.log(moveBoxes)
 
 // a familiar way to perform operations on every element in an array
 // for(i=0; i<moveBoxes.length; i++){
@@ -21,7 +21,7 @@ let moveBoxes = document.querySelectorAll(".moveBox")
 // no iterator variable required if we want to do the same thing to every element
 moveBoxes.forEach( (element) => {
   // console.log(element)
-  element.addEventListener("click", (event) => {moveDown(element)})
+  element.addEventListener("click", (event) => { moveDown(element) })
 })
 
 // ---- Week 9 lecture

@@ -66,6 +66,11 @@ section{
   max-width: 1024px;
 }
 
+.experiment{
+  border: 1px dashed #00000022;
+  padding: 1rem;
+}
+
 #intro{
   max-width: 70ch;
 }
@@ -89,11 +94,10 @@ section{
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-color 0.5s ease;
   background-color: rgb(255,100,0);
 
-  /* easing the movement down the page  */
-  transition: margin-top 1s ease;
+  /* easing the movement down the page, and background colour change  */
+  transition: margin-top 1s ease, background-color 0.5s ease;
 }
   .moveBox:hover{
     cursor: pointer;
