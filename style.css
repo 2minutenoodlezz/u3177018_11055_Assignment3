@@ -1,14 +1,19 @@
 @import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
-@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,700;0,6..12,800;1,6..12,400;1,6..12,500&display=swap');
 
 :root{
   scroll-behavior: smooth;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 body{
   /* default font size, also equal to 1rem */
   font-size: 18px; 
   font-family: 'Nunito Sans', sans-serif;
+  font-weight: 500;
   color: #432;
   background-color: #fcfaf9;
   display: grid;
@@ -19,17 +24,14 @@ a{
   color: inherit;
   transition: color 0.4s ease;
 }
-a:hover{
-  color: rgb(255,100,0)
-}
-nav a{
-  text-decoration: none;
-  font-weight: 700;
-}
+  a:hover{
+    color: rgb(255,100,0)
+  }
 
 h1, 
 h2, 
-h3{
+h3,
+nav{
   font-family: 'Gloock', serif;
   font-weight: 700;
   margin-top: 0.5em;
@@ -43,7 +45,7 @@ h2{
 }
 
 p{
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   line-height: 1.4em;
 }
 
@@ -51,19 +53,131 @@ small{
   font-size: 0.75rem;
 }
 
-img{
+img,
+figure{
   width: 100%;
   height: auto;
 }
 
-section{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #432;
+figure{
+  margin-bottom: 2rem;
 }
 
-.container{
-  max-width: 1024px;
+header{
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  background: #432;
+  color: #fcfaf9;
+  transition: opacity 0.5s ease;
+}
+header ul{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+nav{
+  /* display: flex;
+  align-items:last baseline;
+  justify-content: space-between;
+  position: absolute;
+  width: 80vw;
+  z-index: 1000; */
+}
+  nav a{
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+section{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: 10vh 10vw;
+}
+  section p{
+    margin-bottom: 2rem;
+    max-width: 60ch;
+    font-size: 1.4rem;
+  }
+  section .inner p{
+    padding: 2rem;
+    /* border-left: 2rem solid #432; */
+    background-color: #fcfaf9;
+  }
+  section video,
+  section .bgimg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  section .bgimg{
+    /* filter: grayscale(); */
+    opacity: 0.8;
+  }
+  section video{
+    pointer-events: none;
+  }
+section.long{
+  height: auto;
+  overflow: visible;
+}
+
+section,
+.inner{
+  display: flex;
+  align-items:end;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 8%;
+}
+
+main,
+footer{
+  position: relative;
+}
+
+#bgvid{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#intro h1{
+  z-index: -10;
+  font-size: 10rem;
+  margin: 0;
+  line-height: 0.95em;
+}
+
+/* A container for the p5 canvas */
+#ash{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  pointer-events: none;
 }
 
 .experiment{
@@ -71,13 +185,12 @@ section{
   padding: 1rem;
 }
 
-#intro{
-  max-width: 70ch;
+/* .bg-light{
+  background-color: #fcfaf9;
 }
-#intro p,
-#intro img{
-  margin-bottom: 1.5rem;
-}
+.bg-dark{
+  background-color: #432;
+} */
 
 .redback{
   background-color: #f00;
@@ -103,3 +216,37 @@ section{
     cursor: pointer;
     background-color: rgb(0,150,255);
   }
+
+/* modal.js =================== */
+/* uses: https://iconmonstr.com/x-mark-thin-svg/ */
+.zoomable:hover,
+.modal .close:hover{
+  cursor: pointer;
+}
+.modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000000bb;
+  opacity: 0;
+  transition: opacity 250ms;
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+}
+  .modal img{
+    max-height: 100%;
+  }
+  .modal .close{
+    position: absolute;
+    top: var(--padding-s);
+    right: var(--padding-s);;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../img/iconmonstr-x-mark-thin.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+/* ============================ */

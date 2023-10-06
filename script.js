@@ -1,4 +1,29 @@
 
+// ---- Week 10 workshop
+// global vars
+var lastScroll
+
+// a generic listener, triggers when the page is scrolled
+document.addEventListener("scroll", (event) => {
+  // let's see where we are
+  console.log("scroll y: " + scrollX)
+
+  // and add some logic to make this event useful
+  
+  // if we're scrolling up the page
+  if(scrollY < lastScroll){
+    document.querySelector("header").style.opacity = '1'
+  // or down
+  }else{
+    document.querySelector("header").style.opacity = '0'
+  }
+
+  // a global variable storing the position 
+  // of the scrollbar when scrolling stops
+  lastScroll = scrollY
+});
+
+// ---- Week 9 workshop
 // a function to be used on an element with onClick or any event listener you like
 function moveDown(e){
   e.dataset.clicks ++
