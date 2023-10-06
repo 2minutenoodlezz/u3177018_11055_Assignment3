@@ -1,12 +1,25 @@
 
 // ---- Week 10 workshop
+
+// hide/show header on click
+let header = document.querySelector("header")
+header.addEventListener("click", (event) => {
+  console.log(header)
+  let op = header.style.opacity
+  if(op == "1"){
+    header.style.opacity = "0"
+  }else{
+    header.style.opacity = "1"
+  }
+});
+
 // global vars
 var lastScroll
 
 // a generic listener, triggers when the page is scrolled
 document.addEventListener("scroll", (event) => {
   // let's see where we are
-  console.log("scroll y: " + scrollX)
+  console.log("scroll y: " + scrollY)
 
   // and add some logic to make this event useful
   

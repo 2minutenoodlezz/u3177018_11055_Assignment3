@@ -4,7 +4,7 @@ let pWidth = document.querySelector("#ash").clientWidth;
 let pHeight = document.querySelector("#ash").clientHeight;
 
 function setup() {
-  var myCanvas = createCanvas(pWidth,pHeight);
+  var myCanvas = createCanvas(pWidth, pHeight);
   myCanvas.parent("ash");
  
   fill(200, 180);
@@ -24,6 +24,7 @@ function resizeAsh(){
 function draw() {
   // background('brown');
   clear();
+  
   let t = frameCount / 60; // update time
 
   // create a random number of snowflakes each frame
