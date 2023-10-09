@@ -3,6 +3,7 @@
 
 :root{
   scroll-behavior: smooth;
+  scroll-snap-type: y;
 }
 
 *{
@@ -92,10 +93,22 @@ nav{
     font-weight: 700;
   }
 
-section{
+main{
+}
+main .container-vid{
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+section{
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100vh;
+  /* overflow: hidden; */
   padding: 10vh 10vw;
 }
   section p{
@@ -109,7 +122,8 @@ section{
     background-color: #fcfaf9;
   }
   section video,
-  section .bgimg {
+  section .bgimg,
+  .container-vid video {
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -122,6 +136,7 @@ section{
   section .bgimg{
     /* filter: grayscale(); */
     opacity: 0.8;
+    z-index: 0;
   }
   section video{
     pointer-events: none;
@@ -130,8 +145,20 @@ section.long{
   height: auto;
   overflow: visible;
 }
+section.long .col{
+  color: #fcfaf9;
+  background: #11090066;
+  padding: 2rem;
+} 
+.flex-centre{
+  display: flex;
+  justify-content: center;
+}
 
-section,
+.container-vid video{
+  opacity: 1;
+}
+
 .inner{
   display: flex;
   align-items:end;
@@ -144,6 +171,9 @@ section,
   width: 100%;
   height: 100%;
   padding: 8%;
+}
+.inner p{
+  z-index: 5;
 }
 
 main,
@@ -169,6 +199,20 @@ footer{
   margin: 0;
   line-height: 0.95em;
 }
+/* clipped edge */
+#intro video {
+  clip-path: polygon(
+    0 0,
+    100% 10rem,
+    100% 100%,
+    0 100%);
+}
+/* round video 
+#intro video{
+  border-radius: 50%;
+  width: 90vh;
+  height: 90vh;
+} */
 
 /* A container for the p5 canvas */
 #ash{
@@ -178,6 +222,7 @@ footer{
   top:0;
   left:0;
   pointer-events: none;
+  z-index: 10;
 }
 
 .experiment{
@@ -185,12 +230,16 @@ footer{
   padding: 1rem;
 }
 
-/* .bg-light{
-  background-color: #fcfaf9;
+.experiment div.draggable{
+  width: 5rem;
+  height: 5rem;
+  background: #996600;
+  border: 2px solid #fff;
 }
-.bg-dark{
-  background-color: #432;
-} */
+
+.no-padding{
+  padding: 0;
+}
 
 .redback{
   background-color: #f00;
@@ -235,18 +284,139 @@ footer{
   z-index: 5000;
   display: flex;
   justify-content: center;
+  padding: 2rem;
 }
   .modal img{
     max-height: 100%;
   }
   .modal .close{
     position: absolute;
-    top: var(--padding-s);
-    right: var(--padding-s);;
+    top: 2rem;
+    right: 2rem;
     width: 2rem;
     height: 2rem;
-    background-image: url(../img/iconmonstr-x-mark-thin.svg);
+    background-image: url(assets/img/iconmonstr-x-mark-thin.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #000;
   }
+/* ============================ */
+
+/* https://www.w3schools.com/howto/howto_js_slideshow.asp */
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide the images by default */
+.mySlides {
+  /* display: none; */
+  /* opacity: 0; */
+  position: absolute;
+  left: 100vw;
+  height: 100%;
+  width: 100%;
+}
+.mySlides img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -1rem;
+  /* padding: 1rem; */
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.prev{
+  left: 4rem;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 4rem;
+  /* border-radius: 3px 0 0 3px; */
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  /* background-color: rgba(0,0,0,0.8); */
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 2rem;
+  position: absolute;
+  bottom: 5rem;
+  left: 2rem;
+  background-color: #11090099;
+}
+.text p{
+  margin: 0;
+}
+
+/* The dots/bullets/indicators */
+.dots{
+  position: absolute;
+  bottom: 2rem;
+  left: 4rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  /* justify-content: center; */
+}
+.dot {
+  cursor: pointer;
+  height: 1rem;
+  width: 8rem;
+  background-color: #ddd;
+  /* border-radius: 50%; */
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: rgb(255,100,0);
+}
+
+.fade {
+  transition: opacity 0.5s ease;
+}
+.slide {
+  transition: left 0.5s ease;
+}
+
+/* Fading animation */
+/* .fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+} */
+
+/* ============================ */
+
+.draggable{
+  user-select: none;
+  position: absolute;
+  z-index: 1000;
+}
+
 /* ============================ */

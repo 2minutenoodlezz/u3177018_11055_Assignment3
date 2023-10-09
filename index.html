@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Page</title>
+    <title>Impacts of Bushfires</title>
     <link rel="stylesheet" href="style.css">
    
     <script src="script.js" defer></script>
-
-    <!-- src: https://p5js.org/examples/simulate-snowflakes.html -->
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
-    <script src="ash.js" defer></script>
+    <!-- <script src="ash.js" defer></script> -->
+    <script src="modal.js" defer></script>
+    <script src="carousel.js" defer></script>
+    <script src="draggable.js" defer></script>
 
   </head>
   <body>
@@ -23,6 +24,15 @@
         <!-- <h1><a href="index.html">Impacts of Bushfires</a></h1> -->
         <ul>
           <li>
+            <a href="#">Top</a>
+          </li>
+          <li>
+            <a href="#carousel">Carousel</a>
+          </li>
+          <li>
+            <a href="#more">More</a>
+          </li>
+          <!-- <li>
             <a href="#effects">Effects</a>
           </li>
           <li>
@@ -31,6 +41,9 @@
           <li>
             <a href="#forests">Forests</a>
           </li>
+          <li>
+            <a href="#more">More</a>
+          </li> -->
           <li>
             <hr>
           </li>
@@ -56,47 +69,94 @@
         </div>
       </section>
 
-      <section id="effects" class="bg-dark">
+      <!-- <section id="effects">
         <div class="inner">
           <img class="bgimg zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/CSIRO_ScienceImage_551_Bushfire.jpg/1280px-CSIRO_ScienceImage_551_Bushfire.jpg">
           <p>Here we are considering the adverse effects of high intensity wildfires on the community and the environment. It should be remembered that it is not just intensity of a bushfire that matters. The extent of a bushfire is also very important. A large bushfire can cause multiple direct impacts: on life and property, on the survival of fauna populations, on water resources, and indirectly on government budgets and insurance costs. A large bushfire will also generate huge amounts of smoke.</p>
         </div>
       </section>
 
-      <section id="damage" class="bg-light">
-
+      <section id="damage">
         <div class="inner">
-          <img class="bgimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg/1280px-Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg" alt="the burnt remains of an observatory">
+          <img class="bgimg zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg/1280px-Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg" alt="the burnt remains of an observatory">
           <p>In severe fire seasons the damage caused by bushfires is astronomical. In the 2003 Canberra fire disaster, for example, the cost to insurers alone was $257 million (The West Australian, 13 Feb, 2003). The total cost of the fires, including the cost of suppression measures and lost productivity, would be much greater than this figure. Add to it the loss of life, personal trauma, loss of invaluable personal possessions and destruction of scientific equipment and data from the Mt Stromlo Observatory, and the ramifications of such disasters start to become apparent.</p>
         </div>
-      </section>
+      </section> -->
       
-      <section id="forests">
+      <!-- <section id="forests">
         <div class="inner">
-          <img class="bgimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg/1280px-CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg">
-          <p>Of course, the forests incinerated by these intense bushfires also suffer great damage. Unlike the usual description employed in the media, most native forests are not “destroyed” by wildfire. Some are. Ash-type eucalypt forests are killed in this way, as the 1939 Victorian fire disaster clearly demonstrated. Drier forest types, such as jarrah in WA are not destroyed, although they are severely damaged and many trees are killed by high intensity bushfires.</p>
-          <div id="ash"></div>
+          <img class="bgimg zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg/1280px-CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg">
+          <p>Of course, the forests incinerated by these intense bushfires also suffer great damage. Unlike the usual description employed in the media, most native forests are not “destroyed” by wildfire. Some are. Ash-type eucalypt forests are killed in this way, as the 1939 Victorian fire disaster clearly demonstrated. Drier forest types, such as jarrah in WA are not destroyed, although they are severely damaged and many trees are killed by high intensity bushfires.</p> -->
+          <!-- ash animation. src: https://p5js.org/examples/simulate-snowflakes.html -->
+          <!-- <div id="ash"></div> -->
+        <!-- </div>
+      </section> -->
+
+      <section id="carousel" class="no-padding">
+        <!-- https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+        <div class="slideshow-container">
+
+          <div class="mySlides slide">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/CSIRO_ScienceImage_551_Bushfire.jpg/1280px-CSIRO_ScienceImage_551_Bushfire.jpg" >
+            <div class="text"><p>Here we are considering the adverse effects of high intensity wildfires on the community and the environment. It should be remembered that it is not just intensity of a bushfire that matters. The extent of a bushfire is also very important. A large bushfire can cause multiple direct impacts: on life and property, on the survival of fauna populations, on water resources, and indirectly on government budgets and insurance costs. A large bushfire will also generate huge amounts of smoke.</p></div>
+          </div>
+          <div class="mySlides slide">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg/1280px-Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg" >
+            <div class="text"><p>In severe fire seasons the damage caused by bushfires is astronomical. In the 2003 Canberra fire disaster, for example, the cost to insurers alone was $257 million (The West Australian, 13 Feb, 2003). The total cost of the fires, including the cost of suppression measures and lost productivity, would be much greater than this figure. Add to it the loss of life, personal trauma, loss of invaluable personal possessions and destruction of scientific equipment and data from the Mt Stromlo Observatory, and the ramifications of such disasters start to become apparent.</p></div>
+          </div>
+          <div class="mySlides slide">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg/1280px-CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg" >
+            <div id="ash"></div>
+            <div class="text"><p>Of course, the forests incinerated by these intense bushfires also suffer great damage. Unlike the usual description employed in the media, most native forests are not “destroyed” by wildfire. Some are. Ash-type eucalypt forests are killed in this way, as the 1939 Victorian fire disaster clearly demonstrated. Drier forest types, such as jarrah in WA are not destroyed, although they are severely damaged and many trees are killed by high intensity bushfires.</p></div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <!-- Slide selector -->
+          <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
         </div>
+
       </section>
 
-      <section class="long">
-        <p>The community impacts from the 2009 Victorian disaster have been well documented in the media. An estimate of the final cost of this bushfire awaits the final report of the Royal Commission, but is likely to exceed a billion dollars.</p>
-        <figure>
-          <img src="https://www.bushfirefront.org.au/wp-content/uploads/2017/10/Canberraburnt21203.jpg" alt="">
-          <figcaption></figcaption>
-        </figure>
-        <p>And it does not end with the direct impacts of the fire on those affected. We all lose financially because the inevitable consequence of any large disaster is a rise in insurance premiums.</p>
-        <p>How much better then, if we can avoid, or at least minimise the risk, of such disasters happening again. While the Canberra fire disaster was a complex issue, with several factors contributing to the outcome, experienced fire managers have estimated that a prescribed burn costing about $100,000 would have prevented the disaster, but the burn did not take place due to mistaken land management policies. A mere $100,000 set against well over $257 million would seem a good deal for the community.</p>
-        <p>Canberra is not the only city to have suffered from bushfire damage in recent years. Sydney has experienced a series of lesser, but still serious, bushfire disasters since 1994. In some respects most Australian city fringes and country towns have become more prone to bushfire damage over the past 30 or so years, with the proliferation of rural lifestyle smallholdings and natural vegetation reserves that are preserved, rather than actively managed. Many people who move into rural smallholdings have little awareness of bushfire issues and the threat posed by unmanaged native vegetation.</p>
-        <p>The 2003 Canberra disaster and the Sydney fires were dwarfed by a succession of large wildfires in Victoria. There were very severe and extensive bushfires in Victoria in 2004 and 2007. The 2007 fires burned for several weeks and covered an area of about one million hectares. A recent unofficial estimate of the costs, which includes the damage to forests and property, as well as the costs of suppression, is over $900 million. With those sorts of losses, one might expect the State government to review its whole approach to bush fire management.</p>
-        <p>In fact, an inquiry was carried out mid-2007, and the Bush Fire Front made a submission to it. The report of this inquiry recommended a greatly enhanced program of fuel reduction burning in Victorian forests. Almost nothing had been done to implement this recommendation before the incredible disaster of February 2009. The full story awaits the outcome of the subsequent Royal Commission.</p>
-        <p>The 2016 fire disaster at Yarloop virtually destroyed the town and two lives were lost. A little earlier, more lives were lost in the Esperance fire. Two years after Yarloop, local people were still suffering trauma distress from the fire. Quite apart from the economic losses to individuals, the dislocation to people’s lives is tremendous.</p>
-        <p>Public infrastructure also suffers in major wildfires, Bridges may be burnt, powerlines damaged and industrial plants destroyed. All these lead to diversion of Government resources to repair them, or to reduced economic performance by industry. Apart from the inconvenience of interrupted access, lack of electrical power and economic activity, job losses are frequently added to human woes.</p>
-        <p>As an example of infrastructure losses, after the 2016 Yarloop fire, in which over 160 homes were destroyed, Western Power estimated that the cost of restoring the electricity network at $26 million. Where does the finance for this come from? Probably from our pockets as Western Power recovers its losses through its tariffs.</p>
+      <section id="more" class="long flex-centre no-padding">
+        <div class="container-vid">
+          <video playsinline muted loop poster="">
+            <source src="assets/vid/Forest_11-24.webm" type="video/webm">
+            <source src="assets/vid/190919FlameCloudEffect.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="col">
+          <p>The community impacts from the 2009 Victorian disaster have been well documented in the media. An estimate of the final cost of this bushfire awaits the final report of the Royal Commission, but is likely to exceed a billion dollars.</p>
+          <p>And it does not end with the direct impacts of the fire on those affected. We all lose financially because the inevitable consequence of any large disaster is a rise in insurance premiums.</p>
+          <p>How much better then, if we can avoid, or at least minimise the risk, of such disasters happening again. While the Canberra fire disaster was a complex issue, with several factors contributing to the outcome, experienced fire managers have estimated that a prescribed burn costing about $100,000 would have prevented the disaster, but the burn did not take place due to mistaken land management policies. A mere $100,000 set against well over $257 million would seem a good deal for the community.</p>
+          <p>Canberra is not the only city to have suffered from bushfire damage in recent years. Sydney has experienced a series of lesser, but still serious, bushfire disasters since 1994. In some respects most Australian city fringes and country towns have become more prone to bushfire damage over the past 30 or so years, with the proliferation of rural lifestyle smallholdings and natural vegetation reserves that are preserved, rather than actively managed. Many people who move into rural smallholdings have little awareness of bushfire issues and the threat posed by unmanaged native vegetation.</p>
+          <p>The 2003 Canberra disaster and the Sydney fires were dwarfed by a succession of large wildfires in Victoria. There were very severe and extensive bushfires in Victoria in 2004 and 2007. The 2007 fires burned for several weeks and covered an area of about one million hectares. A recent unofficial estimate of the costs, which includes the damage to forests and property, as well as the costs of suppression, is over $900 million. With those sorts of losses, one might expect the State government to review its whole approach to bush fire management.</p>
+          <p>In fact, an inquiry was carried out mid-2007, and the Bush Fire Front made a submission to it. The report of this inquiry recommended a greatly enhanced program of fuel reduction burning in Victorian forests. Almost nothing had been done to implement this recommendation before the incredible disaster of February 2009. The full story awaits the outcome of the subsequent Royal Commission.</p>
+          <p>The 2016 fire disaster at Yarloop virtually destroyed the town and two lives were lost. A little earlier, more lives were lost in the Esperance fire. Two years after Yarloop, local people were still suffering trauma distress from the fire. Quite apart from the economic losses to individuals, the dislocation to people’s lives is tremendous.</p>
+          <p>Public infrastructure also suffers in major wildfires, Bridges may be burnt, powerlines damaged and industrial plants destroyed. All these lead to diversion of Government resources to repair them, or to reduced economic performance by industry. Apart from the inconvenience of interrupted access, lack of electrical power and economic activity, job losses are frequently added to human woes.</p>
+          <p>As an example of infrastructure losses, after the 2016 Yarloop fire, in which over 160 homes were destroyed, Western Power estimated that the cost of restoring the electricity network at $26 million. Where does the finance for this come from? Probably from our pockets as Western Power recovers its losses through its tariffs.</p>
+        </div>
+          <!-- <figure>
+            <img src="https://www.bushfirefront.org.au/wp-content/uploads/2017/10/Canberraburnt21203.jpg" alt="">
+            <figcaption></figcaption>
+          </figure> -->
       </section>
 
-      <div id="experiments">
+      <section id="experiments">
         <h2>Experiments</h2>
+
+        <div class="experiment">
+          <h3>Draggable elements - try it!</h3>
+          <div class="draggable">drag me!</div>
+          <div class="draggable">drag me!</div>
+          <div class="draggable">drag me!</div>
+        </div>
+
         <div class="experiment">
           <h3>JS onclick and CSS transitions</h3>
           <div class="moveContainer">
@@ -133,7 +193,7 @@
         </div>
         <!-- <div class="experiment">
         </div> -->
-      </div>
+      </section>
     </main>
     <footer>
       <p><small>This site was built as an assignment for The University of Canberra, 2023</small></p>

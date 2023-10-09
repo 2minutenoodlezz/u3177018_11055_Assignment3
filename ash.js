@@ -1,14 +1,15 @@
 let snowflakes = []; // array to hold snowflake objects
 
-let pWidth = document.querySelector("#ash").clientWidth;
-let pHeight = document.querySelector("#ash").clientHeight;
+let pWidth;
+let pHeight;
 
 function setup() {
-  var myCanvas = createCanvas(pWidth, pHeight);
+  var myCanvas = createCanvas(0, 0);
   myCanvas.parent("ash");
  
   fill(200, 180);
   noStroke();
+  resizeAsh()
 }
 
 function windowResized() {
@@ -16,7 +17,7 @@ function windowResized() {
 }
 
 function resizeAsh(){
-   pWidth = document.querySelector("#ash").clientWidth;
+  pWidth = document.querySelector("#ash").clientWidth;
   pHeight = document.querySelector("#ash").clientHeight;
   resizeCanvas(pWidth, pHeight);
 }
@@ -61,13 +62,18 @@ function snowflake() {
     this.posY += pow(this.size, 0.5);
 
     // delete snowflake if past end of screen
-    if (this.posY > height) {
+    if (this.posY > height || this.posY + random(height/8) > height) {
       let index = snowflakes.indexOf(this);
       snowflakes.splice(index, 1);
     }
   };
 
   this.display = function() {
-    ellipse(this.posX, this.posY, this.size);
+    push()
+    translate(this.posX, this.posY)
+    rotate(25)
+    ellipse(0, 0, this.size / 2, this.size);
+    pop()
+
   };
 }

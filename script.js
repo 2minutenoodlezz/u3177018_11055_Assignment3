@@ -1,17 +1,40 @@
+// ---- Week 11 lecture
+
+// seek through a video on scroll
+let dur;
+let container = document.querySelector("#more")
+let vid = document.querySelector(".container-vid video")
+vid.addEventListener("durationchange", (event) => {
+  dur = vid.duration
+  h = container.scrollHeight
+  // console.log(h)
+  let distanceToTop = scrollY + vid.getBoundingClientRect().top
+  //console.log(distanceToTop)
+  let norm = dur / ((document.body.scrollHeight) - distanceToTop)
+  document.addEventListener("scroll", (event) => {
+    if(scrollY >= distanceToTop && scrollY <=  distanceToTop + (h - window.innerHeight)){
+      if(vid.readyState == 4){
+        vid.currentTime = ((scrollY-distanceToTop) * norm)
+        // need to smooth this
+      }
+    }
+  })
+});
+
 
 // ---- Week 10 workshop
 
 // hide/show header on click
-let header = document.querySelector("header")
-header.addEventListener("click", (event) => {
-  console.log(header)
-  let op = header.style.opacity
-  if(op == "1"){
-    header.style.opacity = "0"
-  }else{
-    header.style.opacity = "1"
-  }
-});
+// let header = document.querySelector("header")
+// header.addEventListener("click", (event) => {
+//   console.log(header)
+//   let op = header.style.opacity
+//   if(op == "1"){
+//     header.style.opacity = "0"
+//   }else{
+//     header.style.opacity = "1"
+//   }
+// });
 
 // global vars
 var lastScroll
@@ -19,7 +42,7 @@ var lastScroll
 // a generic listener, triggers when the page is scrolled
 document.addEventListener("scroll", (event) => {
   // let's see where we are
-  console.log("scroll y: " + scrollY)
+  // console.log("scroll y: " + scrollY)
 
   // and add some logic to make this event useful
   
