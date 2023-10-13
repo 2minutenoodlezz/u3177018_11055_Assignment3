@@ -2,7 +2,7 @@
 
 // seek through a video on scroll
 let dur;
-let container = document.querySelector("#more")
+let container = document.querySelector("#scrollvid")
 let vid = document.querySelector(".container-vid video")
 vid.addEventListener("durationchange", (event) => {
   dur = vid.duration
