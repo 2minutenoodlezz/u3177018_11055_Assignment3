@@ -1,3 +1,18 @@
+// ---- Week 12 lecture
+
+let showToggle = document.querySelector(".showToggle")
+showToggle.addEventListener("click", (event)=>{
+  let target = document.querySelector(event.target.dataset.target)
+  // console.log(target)
+  if(target.classList.contains("hidden")){
+    target.classList.remove("hidden")
+    target.classList.add("visible")
+  }else{
+    target.classList.remove("visible")
+    target.classList.add("hidden")
+  }
+})
+
 // ---- Week 11 lecture
 
 // seek through a video on scroll

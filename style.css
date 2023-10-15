@@ -5,8 +5,7 @@
   scroll-behavior: smooth;
   scroll-snap-type: y;
 }
-section,
-footer{
+section{
   scroll-snap-align: start;
 }
 .nosnap{
@@ -62,6 +61,10 @@ h4{
 p{
   /* margin-top: 0.5em; */
   line-height: 1.4em;
+}
+
+b{
+  font-weight: 700;
 }
 
 small{
@@ -127,7 +130,7 @@ section{
   section p{
     margin-bottom: 2rem;
     max-width: 60ch;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
   }
   section .inner p{
     padding: 2rem;
@@ -244,6 +247,9 @@ footer{
   z-index: 10;
 }
 
+#experiments{
+
+}
 .experiment{
   border: 1px dashed #00000022;
   padding: 1rem;
@@ -254,6 +260,31 @@ footer{
   height: 5rem;
   background: #996600;
   border: 2px solid #fff;
+}
+
+.hidden{
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  scroll-snap-type: unset;
+  transition: all 0.5s ease;
+}
+.visible{
+  opacity: 1;
+  position: initial;
+  overflow: initial;
+  height: initial;
+  scroll-snap-type: initial;
+  transition: all 0.5s ease;
+}
+
+.showToggle{
+
+}
+.showToggle:hover{
+  cursor: pointer;
+  color: #FF9F55;
 }
 
 .no-padding{
@@ -379,7 +410,7 @@ footer{
 /* Caption text */
 .text {
   color: #f2f2f2;
-  font-size: 15px;
+  /* font-size: 15px; */
   padding: 2rem;
   position: absolute;
   bottom: 5rem;
@@ -470,6 +501,9 @@ footer{
     border-radius: 50%;
     z-index: 1;
   }
+.timeline p{
+  margin-bottom: 0;
+}
 
 /* Place the container to the left */
 .left {
