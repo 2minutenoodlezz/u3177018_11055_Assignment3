@@ -7,6 +7,7 @@ showToggle.addEventListener("click", (event)=>{
   if(target.classList.contains("hidden")){
     target.classList.remove("hidden")
     target.classList.add("visible")
+    target.scrollIntoView()
   }else{
     target.classList.remove("visible")
     target.classList.add("hidden")
@@ -19,7 +20,9 @@ showToggle.addEventListener("click", (event)=>{
 let dur;
 let container = document.querySelector("#scrollvid")
 let vid = document.querySelector(".container-vid video")
+
 vid.addEventListener("durationchange", (event) => {
+
   dur = vid.duration
   h = container.scrollHeight
   // console.log(h)
@@ -33,7 +36,9 @@ vid.addEventListener("durationchange", (event) => {
         // need to smooth this
       }
     }
+  
   })
+
 });
 
 
