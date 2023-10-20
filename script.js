@@ -1,3 +1,28 @@
+
+class Ghost {
+  constructor(){
+    
+  }
+}
+
+let ghosts = [];
+
+for(i=0; i<numberofghosts; i++){
+  ghosts[i] = new ghost;
+}
+
+setInterval(ghostLoop, 5)
+
+function ghostLoop(){
+
+  for(i=0; i<ghosts.length; i++){
+    ghosts[i].animateGhost
+  }
+
+}
+
+
+
 // ---- Week 12 lecture
 
 let showToggle = document.querySelector(".showToggle")
