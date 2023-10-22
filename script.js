@@ -1,26 +1,53 @@
+// ---- Week 12 workshop
 
+// ghost class for Jonathan
 class Ghost {
-  constructor(){
+  // constructor sets initial values and does some setup 
+  // so the methods have properties to work with
+  constructor(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+
+    this.xSpeed = Math.random()*20;
+    this.ySpeed = Math.random()*20;
     
+    // make an element for our ghost to inhabit
+    let ghostHTML = document.createRange().createContextualFragment(
+      '<div class="ghost" style="width:' + this.w + 'px; height:' + this.h +'px; top:'+ this.y +'px; left:'+ this.x +'px;" onClick=""></div>'
+    )
+    document.body.appendChild(ghostHTML)
+    let tempGhosts = document.querySelectorAll(".ghost")
+    this.element = tempGhosts[tempGhosts.length - 1]
+    this.interval = setInterval(this.animate.bind(this), 50)
+  }
+
+  // class functions (methods) are written simply, 
+  // just the name, parameters and code block:
+  animate(){
+    // console.log("animating")
+    this.x += this.xSpeed
+    this.y += this.ySpeed
+    if(this.x > window.innerWidth-this.w || this.x < 0){
+      this.xSpeed *= -1
+    }
+    if(this.y > window.innerHeight-this.h || this.y < 0){
+      this.ySpeed *= -1
+    }
+    this.element.style.left = this.x + "px"
+    this.element.style.top = this.y + "px"
   }
 }
 
-let ghosts = [];
-
+// now use the class!
+let ghosts = []
+// let intervals = []
+let numberofghosts = 8
 for(i=0; i<numberofghosts; i++){
-  ghosts[i] = new ghost;
+  ghosts[i] = new Ghost(0, 0, 100, 100)
+  // intervals[i] = setInterval(function(){ghosts[i].animate()}, 100)
 }
-
-setInterval(ghostLoop, 5)
-
-function ghostLoop(){
-
-  for(i=0; i<ghosts.length; i++){
-    ghosts[i].animateGhost
-  }
-
-}
-
 
 
 // ---- Week 12 lecture
