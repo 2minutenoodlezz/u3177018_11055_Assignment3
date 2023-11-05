@@ -1,310 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Impacts of Bushfires</title>
-    <link rel="stylesheet" href="style.css">
-   
-    <script src="script.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
-    <!-- <script src="ash.js" defer></script> -->
-    <script src="modal.js" defer></script>
-    <script src="carousel.js" defer></script>
-    <script src="draggable.js" defer></script>
+<html>
+<head>
+    <title>Assignment 2</title>
+    <link rel="stylesheet" href="index.css">
 
-  </head>
-  <body>
-    
-    <video playsinline autoplay muted loop poster="" id="bgvid">
-      <source src="assets/vid/190919FlameCloudEffect.webm" type="video/webm">
-      <source src="assets/vid/190919FlameCloudEffect.mp4" type="video/mp4">
-    </video>
+    <script src="background.js" defer></script>
 
-    <header>
-      <nav>
-        <!-- <h1><a href="index.html">Impacts of Bushfires</a></h1> -->
-        <ul>
-          <li>
-            <a href="#">Top</a>
-          </li>
-          <li>
-            <a href="#carousel">Carousel</a>
-          </li>
-          <li>
-            <a href="#scrollvid">Scrollable Vid</a>
-          </li>
-          <li>
-            <a href="#timeline">Timeline</a>
-          </li>
-          <li>
-            <a href="#outro">Outro/CTA</a>
-          </li>
-          <!-- <li>
-            <a href="#effects">Effects</a>
-          </li>
-          <li>
-            <a href="#damage">Damage</a>
-          </li>
-          <li>
-            <a href="#forests">Forests</a>
-          </li>
-          <li>
-            <a href="#more">More</a>
-          </li> -->
-          <li>
-            <hr>
-          </li>
-          <li>
-            <a href="#experiments">JS Experiments</a>
-            <br>
-            <span data-target="#experiments" class="showToggle">[show/hide]</span>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    
+</head>
+<body>
     <main>
-      <section id="intro">
-        <div class="inner">
-          <h1>Impacts of Bushfires</h1>
-          <!-- src:
-            https://www.videezy.com/free-video/smoke 
-            https://css-tricks.com/full-page-background-video-styles/
-          -->
-          <video playsinline autoplay muted loop poster="">
-            <source src="assets/vid/Smoke_4_1080-24.webm" type="video/webm">
-            <source src="assets/vid/Smoke_4_1080-24.mp4" type="video/mp4">
-          </video>
+        <div id="canvasDiv">
+            <canvas id="myCanvas" width="1000" height="800"></canvas>
+            <h1>Timeline of Major Australian Bushfires</h1>
         </div>
-      </section>
-
-      <!-- <section id="effects">
-        <div class="inner">
-          <img class="bgimg zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/CSIRO_ScienceImage_551_Bushfire.jpg/1280px-CSIRO_ScienceImage_551_Bushfire.jpg">
-          <p>Here we are considering the adverse effects of high intensity wildfires on the community and the environment. It should be remembered that it is not just intensity of a bushfire that matters. The extent of a bushfire is also very important. A large bushfire can cause multiple direct impacts: on life and property, on the survival of fauna populations, on water resources, and indirectly on government budgets and insurance costs. A large bushfire will also generate huge amounts of smoke.</p>
-        </div>
-      </section>
-
-      <section id="damage">
-        <div class="inner">
-          <img class="bgimg zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg/1280px-Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg" alt="the burnt remains of an observatory">
-          <p>In severe fire seasons the damage caused by bushfires is astronomical. In the 2003 Canberra fire disaster, for example, the cost to insurers alone was $257 million (The West Australian, 13 Feb, 2003). The total cost of the fires, including the cost of suppression measures and lost productivity, would be much greater than this figure. Add to it the loss of life, personal trauma, loss of invaluable personal possessions and destruction of scientific equipment and data from the Mt Stromlo Observatory, and the ramifications of such disasters start to become apparent.</p>
-        </div>
-      </section> -->
-      
-      <!-- <section id="forests">
-        <div class="inner">
-          <img class="bgimg zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg/1280px-CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg">
-          <p>Of course, the forests incinerated by these intense bushfires also suffer great damage. Unlike the usual description employed in the media, most native forests are not “destroyed” by wildfire. Some are. Ash-type eucalypt forests are killed in this way, as the 1939 Victorian fire disaster clearly demonstrated. Drier forest types, such as jarrah in WA are not destroyed, although they are severely damaged and many trees are killed by high intensity bushfires.</p> -->
-          <!-- ash animation. src: https://p5js.org/examples/simulate-snowflakes.html -->
-          <!-- <div id="ash"></div> -->
-        <!-- </div>
-      </section> -->
-
-      <section id="carousel" class="no-padding">
-        <!-- https://www.w3schools.com/howto/howto_js_slideshow.asp -->
-        <div class="slideshow-container">
-
-          <div class="mySlides slide">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/CSIRO_ScienceImage_551_Bushfire.jpg/1280px-CSIRO_ScienceImage_551_Bushfire.jpg" >
-            <div class="text"><p>Here we are considering the adverse effects of high intensity wildfires on the community and the environment. It should be remembered that it is not just intensity of a bushfire that matters. The extent of a bushfire is also very important. A large bushfire can cause multiple direct impacts: on life and property, on the survival of fauna populations, on water resources, and indirectly on government budgets and insurance costs. A large bushfire will also generate huge amounts of smoke.</p></div>
-          </div>
-          <div class="mySlides slide">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg/1280px-Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg" >
-            <div class="text"><p>In severe fire seasons the damage caused by bushfires is astronomical. In the 2003 Canberra fire disaster, for example, the cost to insurers alone was $257 million (The West Australian, 13 Feb, 2003). The total cost of the fires, including the cost of suppression measures and lost productivity, would be much greater than this figure. Add to it the loss of life, personal trauma, loss of invaluable personal possessions and destruction of scientific equipment and data from the Mt Stromlo Observatory, and the ramifications of such disasters start to become apparent.</p></div>
-          </div>
-          <div class="mySlides slide">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg/1280px-CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg" >
-            <div id="ash"></div>
-            <div class="text"><p>Of course, the forests incinerated by these intense bushfires also suffer great damage. Unlike the usual description employed in the media, most native forests are not “destroyed” by wildfire. Some are. Ash-type eucalypt forests are killed in this way, as the 1939 Victorian fire disaster clearly demonstrated. Drier forest types, such as jarrah in WA are not destroyed, although they are severely damaged and many trees are killed by high intensity bushfires.</p></div>
-          </div>
-
-          <!-- Next and previous buttons -->
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-          <!-- Slide selector -->
-          <div class="dots">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-          </div>
-        </div>
-
-      </section>
-
-      <section id="scrollvid" class="long flex-centre no-padding">
-        <div class="container-vid">
-          <video playsinline muted loop poster="">
-            <source src="assets/vid/Forest_11-24.webm" type="video/webm">
-            <source src="assets/vid/190919FlameCloudEffect.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="col">
-          <p>The community impacts from the 2009 Victorian disaster have been well documented in the media. An estimate of the final cost of this bushfire awaits the final report of the Royal Commission, but is likely to exceed a billion dollars.</p>
-          <p>And it does not end with the direct impacts of the fire on those affected. We all lose financially because the inevitable consequence of any large disaster is a rise in insurance premiums.</p>
-          <p>How much better then, if we can avoid, or at least minimise the risk, of such disasters happening again. While the Canberra fire disaster was a complex issue, with several factors contributing to the outcome, experienced fire managers have estimated that a prescribed burn costing about $100,000 would have prevented the disaster, but the burn did not take place due to mistaken land management policies. A mere $100,000 set against well over $257 million would seem a good deal for the community.</p>
-          <p>Canberra is not the only city to have suffered from bushfire damage in recent years. Sydney has experienced a series of lesser, but still serious, bushfire disasters since 1994. In some respects most Australian city fringes and country towns have become more prone to bushfire damage over the past 30 or so years, with the proliferation of rural lifestyle smallholdings and natural vegetation reserves that are preserved, rather than actively managed. Many people who move into rural smallholdings have little awareness of bushfire issues and the threat posed by unmanaged native vegetation.</p>
-          <p>The 2003 Canberra disaster and the Sydney fires were dwarfed by a succession of large wildfires in Victoria. There were very severe and extensive bushfires in Victoria in 2004 and 2007. The 2007 fires burned for several weeks and covered an area of about one million hectares. A recent unofficial estimate of the costs, which includes the damage to forests and property, as well as the costs of suppression, is over $900 million. With those sorts of losses, one might expect the State government to review its whole approach to bush fire management.</p>
-          <p>In fact, an inquiry was carried out mid-2007, and the Bush Fire Front made a submission to it. The report of this inquiry recommended a greatly enhanced program of fuel reduction burning in Victorian forests. Almost nothing had been done to implement this recommendation before the incredible disaster of February 2009. The full story awaits the outcome of the subsequent Royal Commission.</p>
-          <p>The 2016 fire disaster at Yarloop virtually destroyed the town and two lives were lost. A little earlier, more lives were lost in the Esperance fire. Two years after Yarloop, local people were still suffering trauma distress from the fire. Quite apart from the economic losses to individuals, the dislocation to people’s lives is tremendous.</p>
-          <p>Public infrastructure also suffers in major wildfires, Bridges may be burnt, powerlines damaged and industrial plants destroyed. All these lead to diversion of Government resources to repair them, or to reduced economic performance by industry. Apart from the inconvenience of interrupted access, lack of electrical power and economic activity, job losses are frequently added to human woes.</p>
-          <p>As an example of infrastructure losses, after the 2016 Yarloop fire, in which over 160 homes were destroyed, Western Power estimated that the cost of restoring the electricity network at $26 million. Where does the finance for this come from? Probably from our pockets as Western Power recovers its losses through its tariffs.</p>
-        </div>
-          <!-- <figure>
-            <img src="https://www.bushfirefront.org.au/wp-content/uploads/2017/10/Canberraburnt21203.jpg" alt="">
-            <figcaption></figcaption>
-          </figure> -->
-      </section>
-
-      <section id="gallery" class="grid-3-col">
-        <img class="zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/CSIRO_ScienceImage_551_Bushfire.jpg/1280px-CSIRO_ScienceImage_551_Bushfire.jpg" >
-        <img class="zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg/1280px-Inside_of_the_74-inch_dome_at_Mount_Stromlo_Observatory.jpg" >
-        <img class="zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg/1280px-CSIRO_ScienceImage_10439_The_Kinglake_National_Park_after_the_Black_Saturday_bushfires.jpg" >
-      </section>
-
-      <section id="timeline" class="long">
-        <h2>Major Bushfire Events in Australia</h2>
-        <p><small>src: <a href="https://en.wikipedia.org/wiki/List_of_major_bushfires_in_Australia">Wikipedia</a></small></p>
-        <!-- https://en.wikipedia.org/wiki/List_of_major_bushfires_in_Australia -->
-
-        <!-- https://www.w3schools.com/howto/howto_css_timeline.asp -->
-        <div class="timeline">
-          <div class="container left">
-            <h3>6 February 1851</h3>
-            <div class="content">
-              <h4>Black Thursday bushfires</h4>
-              <p><b>Damage:</b></p>
-              <p>5,000,000ha burned</p>
-              <p>1 million sheep and thousands of cattle killed</p>
+        <section>
+            <div class="timeline">
+                <div class="container left" onmouseover="getElement(event)" id="1851">
+                    <div class="content">
+                        <p>1851</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1898">
+                    <div class="content">
+                        <p>1898</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1905-1906">
+                    <div class="content">
+                        <p>1905-1906</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1926">
+                    <div class="content">
+                        <p>1926</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1932">
+                    <div class="content">
+                        <p>1932</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1938-1939">
+                    <div class="content">
+                        <p>1938-1939</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1943-1944">
+                    <div class="content">
+                        <p>1943-1944</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1951-1952">
+                    <div class="content">
+                        <p>1951-1952</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1955">
+                    <div class="content">
+                        <p>1955</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1962">
+                    <div class="content">
+                        <p>1962</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1965">
+                    <div class="content">
+                        <p>1965</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1967">
+                    <div class="content">
+                        <p>1967</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1969">
+                    <div class="content">
+                        <p>1969</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1974-1975">
+                    <div class="content">
+                        <p>1974-1975</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1977">
+                    <div class="content">
+                        <p>1977</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1983">
+                    <div class="content">
+                        <p>1983</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1984">
+                    <div class="content">
+                        <p>1984</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="1985">
+                    <div class="content">
+                        <p>1985</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="1997">
+                    <div class="content">
+                        <p>1997</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="2001-2002">
+                    <div class="content">
+                        <p>2001-2002</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="2002-2003">
+                    <div class="content">
+                        <p>2002-2003</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="2006">
+                    <div class="content">
+                        <p>2006</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="2006-2007">
+                    <div class="content">
+                        <p>2006-2007</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="2009">
+                    <div class="content">
+                        <p>2009</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="2013-2014">
+                    <div class="content">
+                        <p>2013-2014</p>
+                    </div>
+                </div>
+                <div class="container right" onmouseover="getElement(event)" id="2015">
+                    <div class="content">
+                        <p>2015</p>
+                    </div>
+                </div>
+                <div class="container left" onmouseover="getElement(event)" id="2019-2020">
+                    <div class="content">
+                        <p>2019-2020</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="container right">
-            <h3>13 January 1939</h3>
-            <div class="content">
-              <h4>Black Friday bushfires</h4>
-              <p><b>Damage:</b></p>
-              <p>2,000,000ha burned</p>
-              <p>71 people killed</p>
-              <p>3,700 homes lost</p>
-            </div>
-          </div>
-          <div class="container left">
-            <h3>14 January – 14 February 1944</h3>
-            <div class="content">
-              <h4>1944 Victorian bushfires</h4>
-              <p><b>Damage:</b></p>
-              <p>1,000,000ha burned</p>
-              <p>15-20 people killed</p>
-              <p>Approx. 500 home lost</p>
-            </div>
-          </div>
-          <div class="container right">
-            <h3>November 1951 – January 1952</h3>
-            <div class="content">
-              <h4>1951–52 bushfires</h4>
-              <p><b>Damage:</b></p>
-              <p>4,000,000ha burned</p>
-              <p>11 people killed</p>
-            </div>
-          </div>
-          <div class="container left">
-            <h3>2 January 1955</h3>
-            <div class="content">
-              <h4>Black Sunday bushfires</h4>
-              <p><b>Damage:</b></p>
-              <p>2 people killed</p>
-              <p>40 homes lost</p>
-            </div>
-          </div>
-          <div class="container right">
-            <h3>2 December 1957</h3>
-            <div class="content">
-              <h4>1957 Leura bushfire, Blue Mountains</h4>
-              <p><b>Damage:</b></p>
-              <p>170 homes lost</p>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <section id="outro" class="nosnap long">
-        <h2>So what can you do?</h2>
-        <h3>Prepare Your Property</h3>
-        <p>The essential thing is to prepare your property well in advance of the fire season. You need to be bushfire-ready by the end of October in Western Australia. All leaf litter needs to be cleared up and inflammable shrubs around the house to a distance of at least 20 metres, and maintained that way until April the next year. Trees continue to shed leaves all through the summer, especially eucalypts, and they keep lodging in gutters. The gutters need to be cleaned out every month or so if there are trees close to the house.</p>
-        <p>In a rural or semi-rural area, where the impact of a bushfire could be severe, a fire plan should be prepared and discussed with the whole family before the fire season. Among other things the plan should state whether you intend to stay and fight a fire or bale out early and risk the house burning down. The plan should also identify the best part of the house in which to take refuge in the event disaster happens and you cannot escape the fire and the building seems likely to burn. It should also list the items you would need to take in the event of an evacuation.</p>
-        <h3>In the Event of a Bushfire</h3>
-        <p>If you are caught in the open by an approaching fire front, you are in a very dangerous position. The risk depends on the type of fire. Grass fires are faster moving than fires in bushland, they throw less embers and the actual fire residence time is far less than fires in bush. Running away from either type of fire is hopeless. A grass fire can move much faster than you can run. The threat comes from two sources: smoke inhalation and radiant heat. It is vital to take shelter from radiant heat behind some solid shield. Even a hole in the ground has saved people in some cases. Finding a bare patch of soil where the fire cannot reach you will enable you to survive if you can avoid the radiant heat somehow. Close to the ground is a zone of clearer air to assist in breathing.</p>
-        <p>So far as defending a house is concerned, the first thing, on becoming aware that a bushfire might threaten your house, is to determine where the fire is and in what direction it is heading. Bushfire news is broadcast on ABC 720 at frequent intervals. You can also go onto the internet and check out the DFES website, which also carries current bushfire information. Be aware that the site may well crash if a lot of people have the same idea. This will enable you to assess the level of risk you face.</p>
-        <p>If you can see that you may well be under threat, then check your fire plan and implement whatever measures you had decided upon. Firstly, check on the location of all family members and decide if you need to fetch them from somewhere too be safe. If children are at school they will be a priority for fire suppression actions by the Bush Fire Brigade or DFES.</p>
-        <h2>For more info in your state:</h2>
-        <ul>
-          <li>ACT - <a href="https://esa.act.gov.au/be-emergency-ready/bushfires">ACT Emergency Services Agency</a></li>
-          <li>NSW<a href=""></a></li>
-          <li>VIC<a href=""></a></li>
-          <li>QLD<a href=""></a></li>
-          <li>TAS<a href=""></a></li>
-          <li>NT<a href=""></a></li>
-          <li>WA<a href=""></a></li>
-          <li>SA<a href=""></a></li>
-        </ul>
-        
-      </section>
-
-      <section id="experiments" class="hidden nosnap">
-        <h2>Experiments</h2>
-
-        <div class="experiment">
-          <h3>Draggable elements - try it!</h3>
-          <div class="draggable">drag me!</div>
-          <div class="draggable">drag me!</div>
-          <div class="draggable">drag me!</div>
-        </div>
-
-        <div class="experiment">
-          <h3>JS onclick and CSS transitions</h3>
-          <div class="moveContainer">
-            <!-- note the use of datasets (data-*) -->
-            <div 
-              class="moveBox"
-              data-clicks="0"
-              data-distance="100"
-            >100
-            </div>
-
-            <!-- a less elegant way to handle a click event - don't do this much -->
-            <div 
-              class="moveBox"
-              data-clicks="0"
-              data-distance="200" 
-              onclick="//moveDown(this)"
-            >200
-            </div>
-
-            <!-- even less elegant, don't dump a bunch of JS in the onclick attribute! -->
-            <div 
-              class="moveBox"
-              data-clicks="0" 
-              data-distance="300" 
-              onclick="
-                      //this.dataset.clicks ++;
-                      //this.style.transition = 'all 1s ease'; 
-                      //this.style.marginTop = (this.dataset.distance * this.dataset.clicks)+'px';
-                      "
-            >300
-            </div>
-          </div>
-        </div>
-        <!-- <div class="experiment">
-        </div> -->
-      </section>
+        </section>
     </main>
-    <footer>
-      <p><small>This site was built as an assignment for The University of Canberra, 2023</small></p>
-      <p><small>content sources:</small></p>
-      <ul>
-        <li><small><a href="https://www.bushfirefront.org.au/home/fire-facts/impacts-of-bushfires/">Bushfire Front</a></small></li>
-        <li><small><a href="https://iconmonstr.com/care-down-thin-svg/">iconmonstr</a></small></li>
-      </ul>
-    </footer>
-  </body>
+
+    <script src="expand.js"></script>
+
+</body>
+
 </html>
